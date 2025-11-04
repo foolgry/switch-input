@@ -36,6 +36,9 @@ func onReady() {
 	// 打开配置文件菜单项
 	mOpenConfig := systray.AddMenuItem("打开配置文件", "使用系统默认编辑器打开配置文件")
 
+	// 重新加载配置文件菜单项
+	mReloadConfig := systray.AddMenuItem("重新加载配置", "重新加载配置文件")
+
 	// 分隔线
 	systray.AddSeparator()
 
@@ -48,6 +51,8 @@ func onReady() {
 			select {
 			case <-mOpenConfig.ClickedCh:
 				globalApp.openConfigFile()
+			case <-mReloadConfig.ClickedCh:
+				globalApp.reloadConfig()
 			case <-mQuit.ClickedCh:
 				systray.Quit()
 				return

@@ -342,6 +342,29 @@ func (a *App) openConfigFile() {
 	}
 }
 
+// reloadConfig 重新加载配置文件
+func (a *App) reloadConfig() {
+	fmt.Println("正在重新加载配置文件...")
+
+	// 重新加载配置
+	if err := a.matcherService.ReloadConfig(); err != nil {
+		errorMsg := fmt.Sprintf("重新加载配置文件失败: %v", err)
+		a.loggerService.LogError(errorMsg)
+		fmt.Printf("%s\n", errorMsg)
+		return
+	}
+
+	// 根据新配置更新日志服务
+	config := a.matcherService.GetConfig()
+	if config != nil {
+		a.loggerService.SetLogging(config.General.EnableLogging)
+	}
+
+	successMsg := "配置文件重新加载成功"
+	a.loggerService.LogInfo(successMsg)
+	fmt.Printf("%s\n", successMsg)
+}
+
 // Greet returns a greeting for the given name
 func (a *App) Greet(name string) string {
 	return fmt.Sprintf("Hello %s, It's show time!", name)
