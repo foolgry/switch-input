@@ -1,0 +1,82 @@
+# 通用忽略文件
+*.log
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Go 相关文件
+# 编译后的二进制文件
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go 测试文件
+*.test
+
+# Go 配置文件
+vendor/
+
+# Go 模块
+go.work
+
+# IDE 相关文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Wails 相关文件
+# 构建输出
+build/
+wails-builder/
+
+# 前端相关文件 (Vite)
+node_modules/
+frontend/dist/
+frontend/node_modules/
+
+# 包管理器锁文件（根据需要保留）
+# package-lock.json
+# yarn.lock
+
+# 前端构建缓存
+.cache/
+.temp/
+
+# 日志文件
+logs/
+*.log
+
+# 配置文件（如果包含敏感信息）
+config.json
+.env
+.env.local
+.env.*.local
+
+# 系统文件
+.DS_Store
+Thumbs.db
+*.bak
+
+# 临时文件
+*.tmp
+*.temp
+
+# 编辑器配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 构建产物
+*.exe
+*.dll
+*.so
+*.dylib
+*.bin
+*.app
